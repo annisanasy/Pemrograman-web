@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Java Script</title>
+    <script>
+        function Hasil() {
+            var bilangan1 = parseInt(document.getElementById("blngn1").value);
+            var bilangan2 = parseInt(document.getElementById("blngn2").value);
+
+            document.getElementById("jml").innerHTML = bilangan1+bilangan2;
+        }
+    </script>
+</head>
+<body>
+    <input id="blngn1" type="text" name="blngn1" onchange="Hasil()"> 
+    <br>
+    + 
+    <br>
+    <input id="blngn2" type="text" name="blngn2" onchange="Hasil()"> 
+    <br>
+    =
+    <span id="jml"></span>
+</body>
+</html>
