@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Validasi</title>
+</head>
+<body>
+    <h1>VALIDASI TIKET</h1>
+    <fieldset>
+    <legend>Form Validasi</legend>
+    <br>
+    <form>
+        <div>
+            <label for="name">Nama: </label>
+            <input type="text" id="name" maxlength="30" required/>
+            <span id="valid1" style="color: yellowgreen"></span>
+        </div>
+        <br>
+        <div>
+            <label for="email">Email: </label>
+            <input type="email" id="email" required/>
+            <span id="valid2" style="color: yellowgreen"></span>
+        </div>
+        <br>
+        <div>
+            <label for="jam">Waktu Keberangkatan: </label>
+            <input type="time" id="jam" required/>
+            <span id="valid3" style="color: yellowgreen"></span>
+        </div>
+        <br>
+        <div>
+            <label for="tujuan">Tujuan Keberangkatan: </label>
+            <input type="text" id="tujuan" required>
+            <span id="valid4" style="color: yellowgreen"></span>
+        </div>
+        <br>
+        <div>
+            <label for="tiket">Jumlah Tiket: </label>
+            <select id="tiket" required>
+                <option value="0">Pilih jumlah tiket</option>
+                <option value="1">1 Tiket</option>
+                <option value="2">2 Tiket</option>
+                <option value="3">3 Tiket</option>
+                <option value="4">4 Tiket</option>
+                <option value="5">5 Tiket</option>
+                <option value="6">6 Tiket</option>
+                <option value="7">7 Tiket</option>
+                <option value="8">8 Tiket</option>
+                <option value="9">9 Tiket</option>
+                <option value="10">10 Tiket</option>
+            </select>
+            <span id="valid5" style="color: yellowgreen"></span>
+        </div>
+        <br>
+        <button type="button" onclick="validasi()">Kirim</button>
+    </form>
+
+    <br><br>
+
+    <span id="hasilname"></span><br>
+    <span id="hasilemail"></span><br>
+    <span id="hasiljam"></span><br>
+    <span id="hasiltujuan"></span><br>
+    <span id="hasiltiket"></span>
+</fieldset>
+</body>
+<script>
+    function validasi(){
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value
+        let jam = document.getElementById("jam").value
+        let tujuan = document.getElementById("tujuan").value
+        let tiket = document.getElementById("tiket").value
+
+        textError = "Invalid Data"
+        if (name == " jam == null || tujuan == " || tiket == 0) {
+            document.getElementById("valid1").innerHTML = textError
+            return false
+        }
+        else if (email == "") {
+            document.getElementById("valid2").innerHTML = textError
+            document.getElementById("valid1").innerHTML = ""
+            return false
+        }
+        else if (jam == "") {
+            document.getElementById("valid3").innerHTML = textError
+            document.getElementById("valid2").innerHTML = ""
+            return false
+        }
+        else if (tujuan == "") {
+            document.getElementById("valid4").innerHTML = textError
+            document.getElementById("valid3").innerHTML = ""
+            return false
+        }
+        else if (tiket == 0) {
+            document.getElementById("valid5").innerHTML = textError
+            document.getElementById("valid4").innerHTML = ""
+            return false
+        }
+        else {
+            document.getElementById("valid5").innerHTML = ""
+        }
+        
+        document.getElementById("hasilname").innerText = "Nama Pelanggan: " + name;
+        document.getElementById("hasilemail").innerText = "Email Aktif: " + email;
+        document.getElementById("hasiljam").innerText = "Waktu Keberangkatan: " + jam;
+        document.getElementById("hasiltujuan").innerText = "Tujuan Keberangkatan: " + tujuan;
+        document.getElementById("hasiltiket").innerText = "Jumlah Tiket: " + tiket;
+    }
+</script>
+</html>

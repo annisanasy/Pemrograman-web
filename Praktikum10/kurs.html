@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kurs </title>
+    <link rel="stylesheet" href="css/style3.css">
+</head>
+<body>
+    <fieldset>
+        <legend>Kurs Rupiah | Mata Uang Asing</legend>
+        <form name="form">
+            <div class="flex">
+                <div>
+                    <h2>Masukan Nilai</h2>
+                    <input id="masukanNilai" type="number" value=" "  onchange="kurs()">
+                </div>
+                <div>
+                    <h2>Valas</h2>
+                    <select id="pilih" onchange="kurs()">
+                        <option value="">-- Pilih Kurs Mata Uang Asing --</option>
+                        <option value="USD">Dolar US</option>
+                        <option value="SGD">Dolar Singapura</option>
+                        <option value="Ringgit">Ringgit</option>
+                        <option value="Yen">Yen Jepang</option>
+                        <option value="EURO">Euro</option>
+                        <option value="Riyal">Riyal Arab Saudi</option>
+                    </select>
+                </div>
+                <div>
+                    <h2>Nilai Rupiah</h2>
+                    <input id="nilaiRupiah" value=" " >
+                </div>
+            </div>
+        </form>
+    </fieldset>
+
+    <script>
+        function kurs() {
+            let inputUang = document.getElementById("masukanNilai").value;
+            let mataUang = document.getElementById("pilih").value;
+            let hasil;
+            
+            if (mataUang == "USD") {
+                hasil = inputUang * 9915;
+                document.getElementById("nilaiRupiah").value = hasil;
+            } else if (mataUang == "SGD") {
+                hasil = inputUang * 13472;
+                document.getElementById("nilaiRupiah").value = hasil;
+            } else if (mataUang == "Ringgit") {
+                hasil = inputUang * 874;
+                document.getElementById("nilaiRupiah").value = hasil;
+            } else if (mataUang == "Yen") {
+                hasil = inputUang * 120;
+                document.getElementById("nilaiRupiah").value = hasil;
+            } else if (mataUang == "EURO") {
+                hasil = inputUang * 15888
+                document.getElementById("nilaiRupiah").value = hasil;
+            } else if (mataUang == "Riyal") {
+                hasil = inputUang * 3592;
+                document.getElementById("nilaiRupiah").value = hasil;
+            } else {
+                hasil = 0;
+            }
+
+            document.getElementById("nilaiRupiah").value = String("Rp. " + hasil);
+        }
+    </script>
+</body>
+</html>
